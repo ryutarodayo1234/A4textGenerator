@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
         columnContents.forEach((text, index) => {
             const textarea = document.createElement('textarea');
             textarea.className = 'column-input';
-            textarea.placeholder = `${index + 1}列目の歌詞...`;
+            textarea.placeholder = `${index + 1}列目...`;
             textarea.value = text;
             textarea.addEventListener('input', (e) => handleInputChange(index, e.target.value));
             lyricsInputsContainer.appendChild(textarea);
