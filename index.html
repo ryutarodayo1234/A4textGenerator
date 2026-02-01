@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文章作成 (A5 x 2)</title>
+
+    <!-- Google Fonts: IBM Plex Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@100;200;300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="no-print control-panel">
+        <h1>文章作成</h1>
+        <p>A4用紙にA5サイズ2面（上下）で印刷されます。</p>
+
+        <div class="input-group">
+            <label for="input-title">タイトル</label>
+            <input type="text" id="input-title" placeholder="タイトルを入力">
+        </div>
+
+        <div class="input-group">
+            <label for="input-lyricist">メモ</label>
+            <input type="text" id="input-lyricist" placeholder="メモ">
+        </div>
+
+        <div class="input-group">
+            <label>文章本文 (列ごとに分かれています)</label>
+            <div id="lyrics-inputs-container">
+                <!-- Textareas injected by JS -->
+                <textarea class="column-input" placeholder="1列目の文章..."></textarea>
+            </div>
+        </div>
+
+        <div class="settings-group">
+            <h3>設定</h3>
+            <div class="setting-item">
+                <label for="font-size">文字サイズ: <span id="font-size-val">9</span>px</label>
+                <input type="range" id="font-size" min="9" max="30" value="9">
+            </div>
+            <div class="setting-item">
+                <label for="line-height">行間: <span id="line-height-val">1.4</span></label>
+                <input type="range" id="line-height" min="1.0" max="4.0" step="0.1" value="1.4">
+            </div>
+            <div class="setting-item">
+                <label for="column-count">段組 (列): <span id="column-count-val">3</span>列</label>
+                <input type="range" id="column-count" min="1" max="5" value="3">
+            </div>
+            <div class="setting-item">
+                <label for="text-color">下段(なぞり書き)の濃さ</label>
+                <input type="color" id="text-color" value="#ababab">
+            </div>
+            <div class="setting-item">
+                <button onclick="window.print()" class="print-btn">印刷する</button>
+            </div>
+            <div class="setting-item">
+                <button id="export-jpg-btn" class="print-btn" style="background-color: #28a745;">JPG書き出し
+                    (350dpi)</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html-to-image/1.11.11/html-to-image.min.js"></script>
+
+    <div class="print-area">
+        <!-- Top Half (A5) -->
+        <div class="page-half top">
+            <div class="content-wrapper">
+                <h2 class="display-title">タイトル</h2>
+                <div class="display-lyricist">メモ</div>
+                <div class="display-lyrics">
+                    文章がここに表示されます...
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Half (A5) -->
+        <div class="page-half bottom">
+            <div class="content-wrapper">
+                <h2 class="display-title">タイトル</h2>
+                <div class="display-lyricist">メモ</div>
+                <div class="display-lyrics">
+                    文章がここに表示されます...
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
