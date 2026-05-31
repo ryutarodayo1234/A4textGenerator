@@ -159,6 +159,7 @@ body {
     /* Preserve line breaks */
     min-width: 0;
     /* Prevent overflow */
+    font-weight: bold;
 }
 
 /* Specific Half Styling */
